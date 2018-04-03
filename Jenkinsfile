@@ -10,7 +10,7 @@ node {
     docker.withRegistry('https://finance.icp.sc.ibm.com:8500/', 'docker'){
     stage "Build"
 
-        def pcImg = docker.build("finance.icp.sc.ibm.com:8500/default/flask-app:${env.BUILD_ID}", "-f Dockerfile.ppc64le .")
+        def pcImg = docker.build("finance.icp.sc.ibm.com:8500/default/flask-app:${env.BUILD_ID}", "-f Dockerfile .")
         sh "cp /root/.dockercfg ${HOME}/.dockercfg"
         pcImg.push()
 
