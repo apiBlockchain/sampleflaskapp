@@ -11,7 +11,7 @@ node {
     stage "Build"
 
         def pcImg = docker.build("finance.icp.sc.ibm.com:8500/default/flask-app:${env.BUILD_ID}", "-f Dockerfile .")
-        sh "cp /root/.dockercfg ${HOME}/.dockercfg"
+       // sh "cp /root/.dockercfg ${HOME}/.dockercfg"
         pcImg.push()
 
     input 'Do you want to proceed with Deployment?'
